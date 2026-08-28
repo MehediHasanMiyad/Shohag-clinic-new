@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সোহাগ জেনারেল হাসপাতাল - রাজাপুর, ঝালকাঠি</title>
+    <!-- Google Fonts for Bengali -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary-color: #0d9488;
+            --accent-color: #16a34a;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar-info span { margin-right: 15px; }
+        .top-bar-info i { margin-right: 5px; color: #38bdf8; }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--primary-dark);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Dropdown Menu for Doctors Category */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 210px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            z-index: 1001;
+            top: 100%;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e0f2fe;
+            color: var(--primary-dark);
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .btn-appointment {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(22, 163, 74, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-appointment:hover {
+            background-color: #15803d;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.90) 0%, rgba(13, 148, 136, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 70px 5%;
+            text-align: center;
+        }
+
+        .hero h2 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
+        .hero p { font-size: 17px; margin-bottom: 25px; }
+
+        /* Section Title Header */
+        .section-title {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Chairman Section */
+        .chairman-section {
+            padding: 60px 5%;
+            background: linear-gradient(to right, #f1f5f9, #e0f2fe);
+        }
+
+        .chairman-card {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .chairman-img-container {
+            position: relative;
+            flex: 0 0 200px;
+        }
+
+        .chairman-img {
+            width: 200px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            border: 4px solid var(--white);
+        }
+
+        .chairman-badge {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: var(--white);
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .chairman-info h3 { font-size: 26px; color: var(--primary-dark); margin-bottom: 4px; }
+        .chairman-title { font-size: 15px; color: var(--secondary-color); font-weight: 700; margin-bottom: 15px; }
+        .chairman-msg {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Doctors Section */
+        .doctors {
+            background-color: #f8fafc;
+            padding: 60px 5%;
+        }
+
+        .category-filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background-color: var(--white);
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .doctor-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+
+        .doctor-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .doctor-img {
+            width: 85px;
+            height: 105px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            flex-shrink: 0;
+        }
+
+        .doctor-dept {
+            background-color: #e0f2fe;
+            color: var(--primary-dark);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .doctor-card h3 { font-size: 18px; color: #0f172a; margin-bottom: 4px; }
+        .doctor-card .degree { color: #475569; font-weight: 500; font-size: 13px; margin-bottom: 6px; line-height: 1.4; }
+        .doctor-card .specialty { color: var(--primary-dark); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+
+        .doctor-card .time {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 8px 10px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            border: 1px solid #bbf7d0;
+            margin-top: auto;
+        }
+
+        /* Appointment Form */
+        .appointment-section { padding: 60px 5%; background: #fff; }
+        .appointment-box { max-width: 600px; margin: 0 auto; background: var(--light-bg); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; }
+        .btn-submit { background: var(--accent-color); color: white; border: none; width: 100%; padding: 12px; font-size: 16px; font-weight: 700; border-radius: 6px; cursor: pointer; }
+
+        /* Footer */
+        footer { background-color: var(--dark-color); color: var(--white); padding: 40px 5% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 25px; }
+        .footer-col h3 { color: #38bdf8; margin-bottom: 12px; font-size: 17px; }
+        .footer-col p, .footer-col li { color: #94a3b8; font-size: 13.5px; margin-bottom: 8px; list-style: none; }
+        .copyright { text-align: center; border-top: 1px solid #334155; padding-top: 15px; color: #64748b; font-size: 13px; }
+
+        /* Floating buttons */
+        .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: #25d366; color: #fff; width: 55px; height: 55px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); z-index: 10000; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        .call-float { position: fixed; bottom: 25px; left: 25px; background-color: var(--primary-color); color: #fff; width: 50px; height: 50px; border-radius: 50px; text-align: center; font-size: 22px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); z-index: 10000; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 12px; text-align: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .chairman-card { flex-direction: column; text-align: center; }
+            .chairman-msg { padding-left: 0; border-left: none; border-top: 2px solid var(--primary-color); padding-top: 10px; }
+            .doctor-header { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i class="fas fa-map-marker-alt"></i> সোহাগ ক্লিনিক রোড, রাজাপুর, ঝালকাঠি</span>
+            <span><i class="fas fa-clock"></i> ২৪ ঘণ্টা সার্ভিস চালু</span>
+        </div>
+        <div class="top-bar-info">
+            <span><i class="fas fa-phone-alt"></i> সিরিয়াল ও জরুরি কল: ০১৮২১-৩৬১৩৯২</span>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">
+                <img src=".//WhatsApp Image 2026-08-28 at 8.11.53 PM.jpeg" alt="লোগো" class="logo-img">
+                <div class="logo-text">
+                    <h1>সোহাগ জেনারেল হাসপাতাল</h1>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#chairman">চেয়ারম্যান</a></li>
+                
+                <!-- Category Filter Dropdown -->
+                <li class="dropdown">
+                    <button class="dropdown-btn">ডাক্তারগণ <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#doctors" onclick="filterDoctors('all')">সকল ডাক্তার</a>
+                        <a href="#doctors" onclick="filterDoctors('gynee')">০১. গাইনি ও প্রসূতি বিভাগ</a>
+                        <a href="#doctors" onclick="filterDoctors('medicine')">০২. মেডিসিন বিভাগ</a>
+                        <a href="#doctors" onclick="filterDoctors('cardio')">০৩. হৃদরোগ বিভাগ</a>
+                        <a href="#doctors" onclick="filterDoctors('neuro')">০৪. নিউরোমেডিসিন ও সার্জারি</a>
+                        <a href="#doctors" onclick="filterDoctors('surgery')">০৫. জেনারেল সার্জারি</a>
+                        <a href="#doctors" onclick="filterDoctors('child')">০৬. শিশু বিভাগ</a>
+                        <a href="#doctors" onclick="filterDoctors('eye')">০৭. চক্ষু বিভাগ</a>
+                        <a href="#doctors" onclick="filterDoctors('skin')">০৮. চর্ম, যৌন ও এলার্জি</a>
+                        <a href="#doctors" onclick="filterDoctors('dental')">০৯. দন্ত বিভাগ</a>
+                    </div>
+                </li>
+
+                <li><a href="#appointment">অ্যাপয়েন্টমেন্ট</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+            </ul>
+            <a href="https://wa.me/8801821361392?text=হ্যালো,%20আমি%20অ্যাপয়েন্টমেন্ট%20নিতে%20চাই।" target="_blank" class="btn-appointment">
+                <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ বুকিং
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>আপনার ও পরিবারের বিশ্বস্ত চিকিৎসা কেন্দ্র</h2>
+        <p>রাজাপুরে আধুনিক ডায়াগনস্টিক পরীক্ষা এবং অভিজ্ঞ বিশেষজ্ঞ চিকিৎসকদের সেবা।</p>
+    </section>
+
+    <!-- Chairman Section -->
+    <section class="chairman-section" id="chairman">
+        <div class="section-title">
+            <h2>আমাদের পরিচালনা পরিষদ</h2>
+        </div>
+        <div class="chairman-card">
+            <div class="chairman-img-container">
+                <img src=".//WhatsApp Image 2026-08-28 at 7.29.50 PM.jpeg" alt="মোঃ আহসান হাবীব সোহাগ" class="chairman-img">
+                <span class="chairman-badge">প্রতিষ্ঠাতা ও চেয়ারম্যান</span>
+            </div>
+            <div class="chairman-info">
+                <h3>মোঃ আহসান হাবীব সোহাগ</h3>
+                <p class="chairman-title">চেয়ারম্যান, সোহাগ জেনারেল হাসপাতাল</p>
+                <p class="chairman-msg">
+                    "আমরা রাজাপুরসহ দক্ষিণাঞ্চলের সকল মানুষের দোরগোড়ায় সঠিক, মানসম্মত ও আধুনিক স্বাস্থ্যসেবা পৌঁছে দিতে সর্বদা অঙ্গীকারবদ্ধ। অভিজ্ঞ ডাক্তার ও আধুনিক প্রযুক্তির সহায়তায় রোগীদের সর্বোচ্চ সেবাদানই আমাদের মূল লক্ষ্য।"
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="doctors">
+        <div class="section-title">
+            <h2>বিশেষজ্ঞ চিকিৎসকমণ্ডলী</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="category-filter-bar">
+            <button class="filter-btn active" onclick="filterDoctors('all')">সকল</button>
+            <button class="filter-btn" onclick="filterDoctors('gynee')">গাইনি</button>
+            <button class="filter-btn" onclick="filterDoctors('medicine')">মেডিসিন</button>
+            <button class="filter-btn" onclick="filterDoctors('cardio')">হৃদরোগ</button>
+            <button class="filter-btn" onclick="filterDoctors('neuro')">নিউরো</button>
+            <button class="filter-btn" onclick="filterDoctors('surgery')">সার্জারি</button>
+            <button class="filter-btn" onclick="filterDoctors('child')">শিশু</button>
+            <button class="filter-btn" onclick="filterDoctors('eye')">চক্ষু</button>
+            <button class="filter-btn" onclick="filterDoctors('skin')">চর্ম ও যৌন</button>
+            <button class="filter-btn" onclick="filterDoctors('dental')">ডেনটিস্ট</button>
+        </div>
+
+        <div class="doctors-grid">
+
+            <!-- ----------------- ০১. গাইনি বিভাগ (Gynee) ----------------- -->
+            <div class="doctor-card gynee">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ নাসরিন সুলতানা" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">গাইনি ও প্রসূতি</span>
+                        <h3>ডাঃ নাসরিন সুলতানা</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), ডিজিও, এমসিপিএস, এফসিপিএস (গাইনি)</p>
+                    </div>
+                </div>
+                <p class="specialty">সহযোগী অধ্যাপক, শেবাচিম। পাইলেস, ব্রেস্ট ও জরায়ু টিউমার বিশেষজ্ঞ ও সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার (বেলা ২টা - সন্ধ্যা ৭টা), ভিজিট: ৭০০/-</p>
+            </div>
+
+            <div class="doctor-card gynee">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সুরাইয়া ইয়াসমিন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">গাইনি ও বন্ধ্যাত্ব</span>
+                        <h3>ডাঃ সুরাইয়া ইয়াসমিন</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, সিএমইউ, এফসিপিএস (গাইনি এন্ড অবস)</p>
+                    </div>
+                </div>
+                <p class="specialty">গাইনি ও প্রসূতি এবং বন্ধ্যাত্ব রোগ বিশেষজ্ঞ ও সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ৮টা - রাত ৮টা), ভিজিট: ৬০০/-</p>
+            </div>
+
+            <div class="doctor-card gynee">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ ফারহানা আফরিন সারাহ" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">প্রসূতি ও আল্ট্রাসোনোগ্রাফি</span>
+                        <h3>ডাঃ ফারহানা আফরিন সারাহ</h3>
+                        <p class="degree">এমবিবিএস, পিজিটি (গাইনি এন্ড অবস), ডিএমইউ</p>
+                    </div>
+                </div>
+                <p class="specialty">প্রসূতি, স্ত্রী রোগ ও আল্ট্রাসোনোগ্রাফি অভিজ্ঞ ও সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> শনি, সোম, বৃহস্পতি (সকাল ১০টা - দুপুর ১২টা)</p>
+            </div>
+
+            <div class="doctor-card gynee">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মেহেনাজ আক্তার" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">গাইনি ও চর্ম-যৌন</span>
+                        <h3>ডাঃ মেহেনাজ আক্তার</h3>
+                        <p class="degree">এম.বি.বি.এস (ডি.ইউ), পিজিটি, এম.সি.জি.পি, ডি.ও.সি</p>
+                    </div>
+                </div>
+                <p class="specialty">গাইনি, চর্ম, যৌন, শিশু ও ব্যাথা সার্জারি চিকিৎসাক</p>
+                <p class="time"><i class="far fa-clock"></i> রোগী দেখার সময়: নিয়মিত, ভিজিট: ৩০০/২০০/-</p>
+            </div>
+
+            <div class="doctor-card gynee">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সারাহ সাদিয়া" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">গাইনি মেডিসিন</span>
+                        <h3>ডাঃ সারাহ সাদিয়া</h3>
+                        <p class="degree">এমবিবিএস, পিজিটি (ইমেজিং)</p>
+                    </div>
+                </div>
+                <p class="specialty">গাইনী মেডিসিন বিষয় চিকিৎসক ও আল্ট্রাসোনোলজিস্ট</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি দিন চেম্বার, ভিজিট: ৩০০/২০০/-</p>
+            </div>
+
+            <!-- ----------------- ০২. মেডিসিন বিভাগ (Medicine) ----------------- -->
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আইয়ুব আল মামুন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">লিভার ও মেডিসিন</span>
+                        <h3>ডাঃ মোঃ আইয়ুব আল মামুন</h3>
+                        <p class="degree">এমবিবিএস, এফসিপিএস (মেডিসিন)</p>
+                    </div>
+                </div>
+                <p class="specialty">অধ্যাপক ও চেয়ারম্যান (লিভার বিভাগ), বিএসএমএমইউ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মাসে একদিন (বুধবার), ভিজিট: ১০০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ হাফিজুর রহমান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও কিডনী</span>
+                        <h3>ডাঃ মোঃ হাফিজুর রহমান</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমডি (নেফ্রোলজি)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন ও কিডনী রোগ বিশেষজ্ঞ, সহকারী অধ্যাপক (শেবাচিম)</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি বুধবার ও বৃহস্পতিবার</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আসাদুজ্জামান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">গ্যাস্ট্রোএন্টারোলজি</span>
+                        <h3>ডাঃ মোঃ আসাদুজ্জামান</h3>
+                        <p class="degree">এম.বি.বি.এস, পিজিটি মেডিসিন, এফ.সি.পি.এস, ডি.এম.ইউ</p>
+                    </div>
+                </div>
+                <p class="specialty">গ্যাস্ট্রোএন্টারোলজি, এন্ডোস্কোপিক ও মেডিসিন চিকিৎসক</p>
+                <p class="time"><i class="far fa-clock"></i> রবি ও বুধবার (বিকাল ৪টা - রাত ৮টা), ভিজিট: ৬০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মিরানা আফরোজ অন্নী" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও বক্ষব্যাধি</span>
+                        <h3>ডাঃ মিরানা আফরোজ অন্নী</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এফসিপিএস (মেডিসিন)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, বক্ষব্যাধি ও কার্ডিওলোজী অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার ও মঙ্গলবার</p>
+            </div>
+
+            <!-- ----------------- ০৩. হৃদরোগ বিভাগ (Cardiology) ----------------- -->
+            <div class="doctor-card cardio">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আবুয়াল হাসান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও হৃদরোগ</span>
+                        <h3>ডাঃ মোঃ আবুয়াল হাসান</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), এফসিপিএস (মেডিসিন)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, হৃদরোগ, বক্ষব্যাধি ও ডায়াবেটিস বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ১০টা - রাত ৮টা), ভিজিট: ৭০০/-</p>
+            </div>
+
+            <div class="doctor-card cardio">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ ইমন ইবনে নূর" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">কার্ডিওলোজি</span>
+                        <h3>ডাঃ মোঃ ইমন ইবনে নূর</h3>
+                        <p class="degree">এম.বি.বি.এস, বি.সি.এস (স্বাস্থ্য), ডি-কার্ড</p>
+                    </div>
+                </div>
+                <p class="specialty">হৃদরোগ, মেডিসিন, উচ্চ রক্তচাপ ও ডায়াবেটিস বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> রবি ও মঙ্গলবার (দুপুর ২টা - রাত ৪টা), ভিজিট: ৬০০/-</p>
+            </div>
+
+            <div class="doctor-card cardio">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সৈয়দ নাজমুল ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">হৃদরোগ ও ইন্টারভেনশনাল</span>
+                        <h3>ডাঃ সৈয়দ নাজমুল ইসলাম</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমডি (কার্ডিওলজি)</p>
+                    </div>
+                </div>
+                <p class="specialty">ক্লিনিক্যাল এন্ড ইন্টারভেনশনাল কার্ডিওলজিস্ট</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি বৃহস্পতিবার (দুপুর ২টা - ৮টা), ভিজিট: ৮০০/-</p>
+            </div>
+
+            <!-- ----------------- ০৪. নিউরোমেডিসিন ও সার্জারি (Neurology) ----------------- -->
+            <div class="doctor-card neuro">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ রুশদী আবুজর সুজন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">নিউরোসার্জারি</span>
+                        <h3>ডাঃ রুশদী আবুজর সুজন</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমএস (নিউরোসার্জারি)</p>
+                    </div>
+                </div>
+                <p class="specialty">নিউরোসার্জন (ব্রেইন ও স্পাইন) কনসালটেন্ট</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ৭টা - রাত ৯টা), ভিজিট: ৭০০/-</p>
+            </div>
+
+            <!-- ----------------- ০৫. সার্জারি বিভাগ (Surgery) ----------------- -->
+            <div class="doctor-card surgery">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ রেজাউল হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">জেনারেল সার্জারি</span>
+                        <h3>ডাঃ মোঃ রেজাউল হোসেন</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এফসিপিএস (সার্জারি)</p>
+                    </div>
+                </div>
+                <p class="specialty">এপেন্ডিক্স, হার্নিয়া, পাইলস, সিজার ও ব্রেস্ট টিউমার অপারেশনে অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি সোম ও শুক্রবার, ভিজিট: ৬০০/-</p>
+            </div>
+
+            <div class="doctor-card surgery">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ কে এম জাহিদুল ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">অর্থোপেডিক সার্জারি</span>
+                        <h3>ডাঃ কে এম জাহিদুল ইসলাম</h3>
+                        <p class="degree">এমবিবিএস, এমএস (অর্থোপেডিক সার্জারী)</p>
+                    </div>
+                </div>
+                <p class="specialty">সহকারী অধ্যাপক, অর্থোপেডিক সার্জারী বিভাগ, শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার (বিকাল ৩টা - রাত ৮টা)</p>
+            </div>
+
+            <!-- ----------------- ০৬. শিশু বিভাগ (Child) ----------------- -->
+            <div class="doctor-card child">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ স্বপ্নীল ডাক্তার দিগন্ত" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">শিশু রোগ</span>
+                        <h3>ডাঃ স্বপ্নীল ডাক্তার দিগন্ত</h3>
+                        <p class="degree">এম.বি.বি.এস, এফ.সি.পি.এস (শিশু)</p>
+                    </div>
+                </div>
+                <p class="specialty">নবজাতক, শিশু-কিশোর ও পুষ্টি রোগ চিকিৎসক</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ১০টা - রাত ৮টা, ভিজিট: ৫০০/-</p>
+            </div>
+
+            <div class="doctor-card child">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ জাকারিয়া হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">শিশু রোগ</span>
+                        <h3>ডাঃ মোঃ জাকারিয়া হোসেন</h3>
+                        <p class="degree">এম.বি.বি.এস, পিজিটি (শিশু রোগ)</p>
+                    </div>
+                </div>
+                <p class="specialty">অনোরারি মেডিকেল অফিসার, শিশু বিভাগ, শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ১০টা - রাত ৮টা</p>
+            </div>
+
+            <!-- ----------------- ০৭. চক্ষু বিভাগ (Eye) ----------------- -->
+            <div class="doctor-card eye">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মির্জা মাহবুবুর রহমান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">চক্ষু বিশেষজ্ঞ</span>
+                        <h3>ডাঃ মির্জা মাহবুবুর রহমান</h3>
+                        <p class="degree">এমবিবিএস, ডিও, স্যার সলিমুল্লাহ মেডিকেল</p>
+                    </div>
+                </div>
+                <p class="specialty">চোখ চুলকানি, পানি পড়া, ছানি পড়া ও চশমা দেওয়া</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ১০টা - ৫টা), ভিজিট: ৭০০/-</p>
+            </div>
+
+            <!-- ----------------- ০৮. চর্ম ও যৌন বিভাগ (Skin) ----------------- -->
+            <div class="doctor-card skin">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ হাবিবুর রহমান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">চর্ম, যৌন ও এলার্জি</span>
+                        <h3>ডাঃ মোঃ হাবিবুর রহমান</h3>
+                        <p class="degree">এমবিবিএস, ডিপিএইচ, ডিডিভি</p>
+                    </div>
+                </div>
+                <p class="specialty">সহযোগী অধ্যাপক (চর্ম ও যৌন), শেবাচিম বরিশাল</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি রবিবার (বেলা ২টা - ৪:৩০টা), ভিজিট: ৫০০/-</p>
+            </div>
+
+            <!-- ----------------- ০৯. দন্ত বিভাগ (Dental) ----------------- -->
+            <div class="doctor-card dental">
+                <div class="doctor-header">
+                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">দন্ত রোগ</span>
+                        <h3>ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম</h3>
+                        <p class="degree">ডিএমটি (ডেন্টিস্ট্রি)</p>
+                    </div>
+                </div>
+                <p class="specialty">দাঁত, মাড়ি ও মুখ গহ্বরের চিকিৎসক</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯টা - রাত ৮টা</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Appointment Form Section (All Doctors Included) -->
+    <section class="appointment-section" id="appointment">
+        <div class="section-title">
+            <h2>অনলাইন ডাক্তার অ্যাপয়েন্টমেন্ট</h2>
+        </div>
+        <div class="appointment-box">
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">রোগীর নাম:</label>
+                    <input type="text" id="name" placeholder="রোগীর নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">মোবাইল নম্বর:</label>
+                    <input type="tel" id="phone" placeholder="০১৮২১-৩৬১৩৯২" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor">ডাক্তার নির্বাচন করুন:</label>
+                    <select id="doctor" required>
+                        <option value="">-- ডাক্তার বাছাই করুন --</option>
+                        
+                        <!-- ০১. গাইনি ও প্রসূতি বিভাগ -->
+                        <optgroup label="গাইনি ও প্রসূতি বিভাগ">
+                            <option value="ডাঃ নাসরিন সুলতানা (গাইনি ও প্রসূতি)">ডাঃ নাসরিন সুলতানা</option>
+                            <option value="ডাঃ সুরাইয়া ইয়াসমিন (গাইনি ও বন্ধ্যাত্ব)">ডাঃ সুরাইয়া ইয়াসমিন</option>
+                            <option value="ডাঃ ফারহানা আফরিন সারাহ (প্রসূতি ও আল্ট্রাসোনো)">ডাঃ ফারহানা আফরিন সারাহ</option>
+                            <option value="ডাঃ মেহেনাজ আক্তার (গাইনি ও চর্ম-যৌন)">ডাঃ মেহেনাজ আক্তার</option>
+                            <option value="ডাঃ সারাহ সাদিয়া (গাইনি মেডিসিন)">ডাঃ সারাহ সাদিয়া</option>
+                        </optgroup>
+
+                        <!-- ০২. মেডিসিন বিভাগ -->
+                        <optgroup label="মেডিসিন বিভাগ">
+                            <option value="ডাঃ মোঃ আইয়ুব আল মামুন (লিভার ও মেডিসিন)">ডাঃ মোঃ আইয়ুব আল মামুন</option>
+                            <option value="ডাঃ মোঃ হাফিজুর রহমান (মেডিসিন ও কিডনী)">ডাঃ মোঃ হাফিজুর রহমান</option>
+                            <option value="ডাঃ মোঃ আসাদুজ্জামান (গ্যাস্ট্রোএন্টারোলজি)">ডাঃ মোঃ আসাদুজ্জামান</option>
+                            <option value="ডাঃ মিরানা আফরোজ অন্নী (মেডিসিন ও বক্ষব্যাধি)">ডাঃ মিরানা আফরোজ অন্নী</option>
+                        </optgroup>
+
+                        <!-- ০৩. হৃদরোগ বিভাগ -->
+                        <optgroup label="হৃদরোগ বিভাগ">
+                            <option value="ডাঃ মোঃ আবুয়াল হাসান (মেডিসিন ও হৃদরোগ)">ডাঃ মোঃ আবুয়াল হাসান</option>
+                            <option value="ডাঃ মোঃ ইমন ইবনে নূর (কার্ডিওলোজি)">ডাঃ মোঃ ইমন ইবনে নূর</option>
+                            <option value="ডাঃ সৈয়দ নাজমুল ইসলাম (হৃদরোগ বিশেষজ্ঞ)">ডাঃ সৈয়দ নাজমুল ইসলাম</option>
+                        </optgroup>
+
+                        <!-- ০৪. নিউরোমেডিসিন ও সার্জারি -->
+                        <optgroup label="নিউরোমেডিসিন ও সার্জারি">
+                            <option value="ডাঃ রুশদী আবুজর সুজন (নিউরোসার্জারি)">ডাঃ রুশদী আবুজর সুজন</option>
+                        </optgroup>
+
+                        <!-- ০৫. সার্জারি বিভাগ -->
+                        <optgroup label="সার্জারি বিভাগ">
+                            <option value="ডাঃ মোঃ রেজাউল হোসেন (জেনারেল সার্জারি)">ডাঃ মোঃ রেজাউল হোসেন</option>
+                            <option value="ডাঃ কে এম জাহিদুল ইসলাম (অর্থোপেডিক সার্জারি)">ডাঃ কে এম জাহিদুল ইসলাম</option>
+                        </optgroup>
+
+                        <!-- ০৬. শিশু বিভাগ -->
+                        <optgroup label="শিশু বিভাগ">
+                            <option value="ডাঃ স্বপ্নীল ডাক্তার দিগন্ত (শিশু রোগ)">ডাঃ স্বপ্নীল ডাক্তার দিগন্ত</option>
+                            <option value="ডাঃ মোঃ জাকারিয়া হোসেন (শিশু রোগ)">ডাঃ মোঃ জাকারিয়া হোসেন</option>
+                        </optgroup>
+
+                        <!-- ০৭. চক্ষু বিভাগ -->
+                        <optgroup label="চক্ষু বিভাগ">
+                            <option value="ডাঃ মির্জা মাহবুবুর রহমান (চক্ষু বিশেষজ্ঞ)">ডাঃ মির্জা মাহবুবুর রহমান</option>
+                        </optgroup>
+
+                        <!-- ০৮. চর্ম ও যৌন বিভাগ -->
+                        <optgroup label="চর্ম ও যৌন বিভাগ">
+                            <option value="ডাঃ মোঃ হাবিবুর রহমান (চর্ম, যৌন ও এলার্জি)">ডাঃ মোঃ হাবিবুর রহমান</option>
+                        </optgroup>
+
+                        <!-- ০৯. দন্ত বিভাগ -->
+                        <optgroup label="দন্ত বিভাগ">
+                            <option value="ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম (দন্ত রোগ)">ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">তারিখ:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে বুকিং পাঠান
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>সোহাগ জেনারেল হাসপাতাল</h3>
+                <p><i class="fas fa-map-marker-alt"></i> সোহাগ ক্লিনিক রোড, রাজাপুর, ঝালকাঠি।</p>
+            </div>
+            <div class="footer-col">
+                <h3>জরুরি যোগাযোগ</h3>
+                <ul>
+                    <li><i class="fas fa-phone-alt"></i> ০১৮২১-৩৬১৩৯২</li>
+                    <li><i class="fab fa-whatsapp"></i> ০১৮২১-৩৬১৩৯২</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>সেবার সময়সূচি</h3>
+                <p><i class="fas fa-clock"></i> ২৪ ঘণ্টা সার্ভিস চালু</p>
+            </div>
+            <div class="footer-col">
+                <h3>Powered By</h3>
+                <p><i class=""></i> Nexora Tech</p>
+                <p>Mehedi Hasan Miyad</p>
+                <p>01354464300</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; ২০২৬ সোহাগ জেনারেল হাসপাতাল, রাজাপুর। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/8801821361392" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="tel:01821361392" class="call-float"><i class="fas fa-phone-alt"></i></a>
+
+    <!-- Scripts -->
+    <script>
+        function filterDoctors(category) {
+            const cards = document.querySelectorAll('.doctor-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // WhatsApp Form Submit Logic
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+
+            const text = `*-- সোহাগ জেনারেল হাসপাতাল --*%0A*নতুন অ্যাপয়েন্টমেন্ট*%0A%0A👤 *রোগী:* ${name}%0A📞 *মোবাইল:* ${phone}%0A👨‍⚕️ *ডাক্তার:* ${doctor}%0A📅 *তারিখ:* ${date}`;
+            
+            window.open(`https://wa.me/8801821361392?text=${text}`, '_blank');
+        });
+    </script>
+</body>
+</html>
