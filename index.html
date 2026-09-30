@@ -422,16 +422,22 @@
                 <li class="dropdown">
                     <button class="dropdown-btn">ডাক্তারগণ <i class="fas fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a href="#doctors" onclick="filterDoctors('all')">সকল ডাক্তার</a>
-                        <a href="#doctors" onclick="filterDoctors('gynee')">০১. গাইনি ও প্রসূতি বিভাগ</a>
-                        <a href="#doctors" onclick="filterDoctors('medicine')">০২. মেডিসিন বিভাগ</a>
-                        <a href="#doctors" onclick="filterDoctors('cardio')">০৩. হৃদরোগ বিভাগ</a>
-                        <a href="#doctors" onclick="filterDoctors('neuro')">০৪. নিউরোমেডিসিন ও সার্জারি</a>
-                        <a href="#doctors" onclick="filterDoctors('surgery')">০৫. জেনারেল সার্জারি</a>
-                        <a href="#doctors" onclick="filterDoctors('child')">০৬. শিশু বিভাগ</a>
-                        <a href="#doctors" onclick="filterDoctors('eye')">০৭. চক্ষু বিভাগ</a>
-                        <a href="#doctors" onclick="filterDoctors('skin')">০৮. চর্ম, যৌন ও এলার্জি</a>
-                        <a href="#doctors" onclick="filterDoctors('dental')">০৯. দন্ত বিভাগ</a>
+                        
+                        <div class="filter-buttons">
+    <button class="filter-btn active" onclick="filterDoctors('all')">সব ডাক্তার</button>
+    <button class="filter-btn" onclick="filterDoctors('gynecology')">গাইনী ও প্রসূতি</button>
+    <button class="filter-btn" onclick="filterDoctors('medicine')">মেডিসিন ও হৃদরোগ</button>
+    <button class="filter-btn" onclick="filterDoctors('pediatrics')">শিশু রোগ</button>
+    <button class="filter-btn" onclick="filterDoctors('neurology')">নিউরোমেডিসিন</button>
+    <button class="filter-btn" onclick="filterDoctors('kidney')">কিডনি ও ইউরোলজি</button>
+    <button class="filter-btn" onclick="filterDoctors('orthopedics')">অর্থোপেডিকস</button>
+    <button class="filter-btn" onclick="filterDoctors('ent')">নাক-কান-গলা</button>
+    <button class="filter-btn" onclick="filterDoctors('hematology')">রক্তরোগ</button>
+    <button class="filter-btn" onclick="filterDoctors('eye')">চক্ষু বিভাগ</button>
+    <button class="filter-btn" onclick="filterDoctors('skin')">চর্ম ও যৌন</button>
+    <button class="filter-btn" onclick="filterDoctors('surgery')">সার্জারি</button>
+    <button class="filter-btn" onclick="filterDoctors('dental')">দন্ত বিভাগ</button>
+</div>
                     </div>
                 </li>
 
@@ -477,379 +483,645 @@
         </div>
 
         <!-- Filter Buttons -->
-        <div class="category-filter-bar">
-            <button class="filter-btn active" onclick="filterDoctors('all')">সকল</button>
-            <button class="filter-btn" onclick="filterDoctors('gynee')">গাইনি</button>
-            <button class="filter-btn" onclick="filterDoctors('medicine')">মেডিসিন</button>
-            <button class="filter-btn" onclick="filterDoctors('cardio')">হৃদরোগ</button>
-            <button class="filter-btn" onclick="filterDoctors('neuro')">নিউরো</button>
-            <button class="filter-btn" onclick="filterDoctors('surgery')">সার্জারি</button>
-            <button class="filter-btn" onclick="filterDoctors('child')">শিশু</button>
-            <button class="filter-btn" onclick="filterDoctors('eye')">চক্ষু</button>
-            <button class="filter-btn" onclick="filterDoctors('skin')">চর্ম ও যৌন</button>
-            <button class="filter-btn" onclick="filterDoctors('dental')">ডেনটিস্ট</button>
-        </div>
+        <div class="filter-buttons">
+    <button class="filter-btn active" onclick="filterDoctors('all', event)">সব ডাক্তার</button>
+    <button class="filter-btn" onclick="filterDoctors('gynecology', event)">গাইনী</button>
+    <button class="filter-btn" onclick="filterDoctors('medicine', event)">মেডিসিন ও হৃদরোগ</button>
+    <button class="filter-btn" onclick="filterDoctors('pediatrics', event)">শিশু রোগ</button>
+    <button class="filter-btn" onclick="filterDoctors('neurology', event)">নিউরোমেডিসিন</button>
+    <button class="filter-btn" onclick="filterDoctors('kidney', event)">কিডনি ও ইউরোলজি</button>
+    <button class="filter-btn" onclick="filterDoctors('orthopedics', event)">অর্থোপেডিক্স</button>
+    <button class="filter-btn" onclick="filterDoctors('ent', event)">নাক-কান-গলা</button>
+    <button class="filter-btn" onclick="filterDoctors('eye', event)">চক্ষু বিভাগ</button>
+    <button class="filter-btn" onclick="filterDoctors('skin', event)">চর্ম ও যৌন</button>
+    <button class="filter-btn" onclick="filterDoctors('surgery', event)">সার্জারি</button>
+    <button class="filter-btn" onclick="filterDoctors('dental', event)">দন্ত বিভাগ</button>
+</div>
 
         <div class="doctors-grid">
-
-            <!-- ----------------- ০১. গাইনি বিভাগ (Gynee) ----------------- -->
-            <div class="doctor-card gynee">
+            <!-- ================= ১. গাইনী ও প্রসূতি বিভাগ (Gynecology) ================= -->
+            <div class="doctor-card gynecology">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ নাসরিন সুলতানা" class="doctor-img">
+                    <img src=".//nasrin.jpeg" alt="ডাঃ নাসরিন সুলতানা" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">গাইনি ও প্রসূতি</span>
+                        <span class="doctor-dept">গাইনী ও প্রসূতি</span>
                         <h3>ডাঃ নাসরিন সুলতানা</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), ডিজিও, এমসিপিএস, এফসিপিএস (গাইনি)</p>
+                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), ডিজিঅ', এমসিপিএস (গাইনী), এফসিপিএস (গাইনী)</p>
                     </div>
                 </div>
-                <p class="specialty">সহযোগী অধ্যাপক, শেবাচিম। পাইলেস, ব্রেস্ট ও জরায়ু টিউমার বিশেষজ্ঞ ও সার্জন</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার (বেলা ২টা - সন্ধ্যা ৭টা), ভিজিট: ৭০০/-</p>
+                <p class="specialty">সহযোগী অধ্যাপক, শেবাচিম। পাইলেস, ব্রেস্ট টিউমার, জরায়ু টিউমার চিকিৎসায় অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার বেলা ২টা থেকে সন্ধ্যা ৭টা | ভিজিট: ৭০০/-</p>
             </div>
 
-            <div class="doctor-card gynee">
+            <div class="doctor-card gynecology">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সুরাইয়া ইয়াসমিন" class="doctor-img">
+                    <img src=".//suraiyayasmin.jpeg" alt="ডাঃ সুরাইয়া ইয়াসমিন" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">গাইনি ও বন্ধ্যাত্ব</span>
+                        <span class="doctor-dept">গাইনী ও প্রসূতি</span>
                         <h3>ডাঃ সুরাইয়া ইয়াসমিন</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, সিএমইউ, এফসিপিএস (গাইনি এন্ড অবস)</p>
+                        <p class="degree">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), সিএমইউ (আল্ট্রা), এফসিপিএস (গাইনী এন্ড অবস্)</p>
                     </div>
                 </div>
-                <p class="specialty">গাইনি ও প্রসূতি এবং বন্ধ্যাত্ব রোগ বিশেষজ্ঞ ও সার্জন</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ৮টা - রাত ৮টা), ভিজিট: ৬০০/-</p>
+                <p class="specialty">গাইনী, প্রসূতি ও বন্ধ্যাত্ব রোগ বিশেষজ্ঞ ও সার্জন। সাবেক চিকিৎসক (পিজি হাসপাতাল, ঢাকা)</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ৮টা থেকে রাত ৮টা | ভিজিট: ৬০০/-</p>
             </div>
 
-            <div class="doctor-card gynee">
+            <div class="doctor-card gynecology">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ ফারহানা আফরিন সারাহ" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTchjolRPvKyreHbAIFmUrFJS9YwCsbpfLYt9CfoyU4fQ&s=10" alt="ডাঃ ফারহানা আফরিন সারাহ" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">প্রসূতি ও আল্ট্রাসোনোগ্রাফি</span>
+                        <span class="doctor-dept">প্রসূতি ও স্ত্রী রোগ</span>
                         <h3>ডাঃ ফারহানা আফরিন সারাহ</h3>
-                        <p class="degree">এমবিবিএস, পিজিটি (গাইনি এন্ড অবস), ডিএমইউ</p>
+                        <p class="degree">এমবিবিএস (ঢামেক), পিজিটি (গাইনী এন্ড অবস্), ডিএমইউ (ডিপ্লোমা ইন মেডিকেল আল্ট্রাসোনো)</p>
                     </div>
                 </div>
-                <p class="specialty">প্রসূতি, স্ত্রী রোগ ও আল্ট্রাসোনোগ্রাফি অভিজ্ঞ ও সার্জন</p>
-                <p class="time"><i class="far fa-clock"></i> শনি, সোম, বৃহস্পতি (সকাল ১০টা - দুপুর ১২টা)</p>
+                <p class="specialty">প্রসূতি, স্ত্রী রোগ ও আল্ট্রাসোনোগ্রাফি অভিজ্ঞ এবং সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শনি, সোম, বৃহস্পতিবার সকাল ১০টা থেকে দুপুর ১২টা</p>
             </div>
 
-            <div class="doctor-card gynee">
+            <div class="doctor-card gynecology">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মেহেনাজ আক্তার" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT46lubghBASytNpQ3LSdhx--dLtNIRozt0pI1bmG9fFg&s=10" alt="ডাঃ মেহেনাজ আক্তার" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">গাইনি ও চর্ম-যৌন</span>
+                        <span class="doctor-dept">গাইনী ও আল্ট্রাসোনোলজি</span>
                         <h3>ডাঃ মেহেনাজ আক্তার</h3>
-                        <p class="degree">এম.বি.বি.এস (ডি.ইউ), পিজিটি, এম.সি.জি.পি, ডি.ও.সি</p>
+                        <p class="degree">এম.বি.বি.এস (ডি.ইউ), পিজিটি, সি.এম.ইউ, ডি.এম.ইউ (আল্ট্রা)</p>
                     </div>
                 </div>
-                <p class="specialty">গাইনি, চর্ম, যৌন, শিশু ও ব্যাথা সার্জারি চিকিৎসাক</p>
-                <p class="time"><i class="far fa-clock"></i> রোগী দেখার সময়: নিয়মিত, ভিজিট: ৩০০/২০০/-</p>
+                <p class="specialty">গাইনী, চর্ম, যৌন, শিশু ও ব্যথা সার্জারী জরুরি চিকিৎসা মেডিসিন ও আল্ট্রাসোনোলজিস্ট</p>
+                <p class="time"><i class="far fa-clock"></i> রোগী দেখার সময়: যোগাযোগ করুন | ভিজিট: ৩০০/২০০/-</p>
             </div>
 
-            <div class="doctor-card gynee">
+            <div class="doctor-card gynecology">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সারাহ সাদিয়া" class="doctor-img">
+                    <img src=".//sarah.jpeg" alt="ডাঃ সারাহ সাদিয়া" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">গাইনি মেডিসিন</span>
+                        <span class="doctor-dept">গাইনী মেডিসিন</span>
                         <h3>ডাঃ সারাহ সাদিয়া</h3>
-                        <p class="degree">এমবিবিএস, পিজিটি (ইমেজিং)</p>
+                        <p class="degree">এমবিবিএস, পিজিটি ইন রেডিওলজী এন্ড ইমেজিং, সিএমইউ (টিভিএস)</p>
                     </div>
                 </div>
-                <p class="specialty">গাইনী মেডিসিন বিষয় চিকিৎসক ও আল্ট্রাসোনোলজিস্ট</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি দিন চেম্বার, ভিজিট: ৩০০/২০০/-</p>
+                <p class="specialty">গাইনী মেডিসিন বিষয়ে চিকিৎসক ও আল্ট্রাসোনোলজিস্ট</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন (রুম নং-৭১৫) | ভিজিট: ৩০০/২০০/-</p>
             </div>
 
-            <!-- ----------------- ০২. মেডিসিন বিভাগ (Medicine) ----------------- -->
+            <!-- ================= ২. মেডিসিন ও হৃদরোগ বিভাগ (Medicine & Cardiology) ================= -->
             <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আইয়ুব আল মামুন" class="doctor-img">
-                    <div>
-                        <span class="doctor-dept">লিভার ও মেডিসিন</span>
-                        <h3>ডাঃ মোঃ আইয়ুব আল মামুন</h3>
-                        <p class="degree">এমবিবিএস, এফসিপিএস (মেডিসিন)</p>
-                    </div>
-                </div>
-                <p class="specialty">অধ্যাপক ও চেয়ারম্যান (লিভার বিভাগ), বিএসএমএমইউ</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি মাসে একদিন (বুধবার), ভিজিট: ১০০০/-</p>
-            </div>
-
-            <div class="doctor-card medicine">
-                <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ হাফিজুর রহমান" class="doctor-img">
-                    <div>
-                        <span class="doctor-dept">মেডিসিন ও কিডনী</span>
-                        <h3>ডাঃ মোঃ হাফিজুর রহমান</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, এমডি (নেফ্রোলজি)</p>
-                    </div>
-                </div>
-                <p class="specialty">মেডিসিন ও কিডনী রোগ বিশেষজ্ঞ, সহকারী অধ্যাপক (শেবাচিম)</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি বুধবার ও বৃহস্পতিবার</p>
-            </div>
-
-            <div class="doctor-card medicine">
-                <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আসাদুজ্জামান" class="doctor-img">
-                    <div>
-                        <span class="doctor-dept">গ্যাস্ট্রোএন্টারোলজি</span>
-                        <h3>ডাঃ মোঃ আসাদুজ্জামান</h3>
-                        <p class="degree">এম.বি.বি.এস, পিজিটি মেডিসিন, এফ.সি.পি.এস, ডি.এম.ইউ</p>
-                    </div>
-                </div>
-                <p class="specialty">গ্যাস্ট্রোএন্টারোলজি, এন্ডোস্কোপিক ও মেডিসিন চিকিৎসক</p>
-                <p class="time"><i class="far fa-clock"></i> রবি ও বুধবার (বিকাল ৪টা - রাত ৮টা), ভিজিট: ৬০০/-</p>
-            </div>
-
-            <div class="doctor-card medicine">
-                <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মিরানা আফরোজ অন্নী" class="doctor-img">
-                    <div>
-                        <span class="doctor-dept">মেডিসিন ও বক্ষব্যাধি</span>
-                        <h3>ডাঃ মিরানা আফরোজ অন্নী</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, এফসিপিএস (মেডিসিন)</p>
-                    </div>
-                </div>
-                <p class="specialty">মেডিসিন, বক্ষব্যাধি ও কার্ডিওলোজী অভিজ্ঞ</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার ও মঙ্গলবার</p>
-            </div>
-
-            <!-- ----------------- ০৩. হৃদরোগ বিভাগ (Cardiology) ----------------- -->
-            <div class="doctor-card cardio">
-                <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ আবুয়াল হাসান" class="doctor-img">
+                    <img src=".//abual-hasan.jpeg" alt="ডাঃ মোঃ আবুয়াল হাসান" class="doctor-img">
                     <div>
                         <span class="doctor-dept">মেডিসিন ও হৃদরোগ</span>
                         <h3>ডাঃ মোঃ আবুয়াল হাসান</h3>
                         <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), এফসিপিএস (মেডিসিন)</p>
                     </div>
                 </div>
-                <p class="specialty">মেডিসিন, হৃদরোগ, বক্ষব্যাধি ও ডায়াবেটিস বিশেষজ্ঞ</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ১০টা - রাত ৮টা), ভিজিট: ৭০০/-</p>
+                <p class="specialty">মেডিসিন বিশেষজ্ঞ, হৃদরোগ, বক্ষব্যাধি, বাত-ব্যথা, স্নায়ু, গ্যাস্ট্রোলিভার ও ডায়াবেটিস</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ১০টা থেকে রাত ৮টা | ভিজিট: ৭০০/-</p>
             </div>
 
-            <div class="doctor-card cardio">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ ইমন ইবনে নূর" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHWp8T-5pZ83I4rRQJfoPsbbg0voFnAYu4UsKmst4KRA&s=10" alt="ডাঃ মোঃ ইমন ইবনে নূর" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">কার্ডিওলোজি</span>
+                        <span class="doctor-dept">হৃদরোগ ও মেডিসিন</span>
                         <h3>ডাঃ মোঃ ইমন ইবনে নূর</h3>
-                        <p class="degree">এম.বি.বি.এস, বি.সি.এস (স্বাস্থ্য), ডি-কার্ড</p>
+                        <p class="degree">এম.বি.বি.এস, বি.সি.এস (স্বাস্থ্য), ডি-কার্ড, কার্ডিওলজিস্ট</p>
                     </div>
                 </div>
-                <p class="specialty">হৃদরোগ, মেডিসিন, উচ্চ রক্তচাপ ও ডায়াবেটিস বিশেষজ্ঞ</p>
-                <p class="time"><i class="far fa-clock"></i> রবি ও মঙ্গলবার (দুপুর ২টা - রাত ৪টা), ভিজিট: ৬০০/-</p>
+                <p class="specialty">হৃদরোগ, মেডিসিন, উচ্চ রক্তচাপ, বাতজ্বর, বক্ষব্যাধি ও ডায়াবেটিস বিষয়ে অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি রবি ও মঙ্গলবার দুপুর ২টা থেকে ৪টা | ভিজিট: ৬০০/-</p>
             </div>
 
-            <div class="doctor-card cardio">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ সৈয়দ নাজমুল ইসলাম" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4nw6kCW0KW-OWRlH2YrR_5YpugCknbumi3QACiCMow&s=10" alt="ডাঃ সৈয়দ নাজমুল ইসলাম" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">হৃদরোগ ও ইন্টারভেনশনাল</span>
-                        <h3>ডাঃ সৈয়দ নাজমুল ইসলাম</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, এমডি (কার্ডিওলজি)</p>
+                        <span class="doctor-dept">হৃদরোগ ও মেডিসিন</span>
+                        <h3>ডাঃ সৈয়দ নাজমুল ইসলাম</h3>
+                        <p class="degree">এমবিবিএস (চমেক), বিসিএস, এমডি (কার্ডিওলজী), এমএসিপি (আমেরিকা)</p>
                     </div>
                 </div>
-                <p class="specialty">ক্লিনিক্যাল এন্ড ইন্টারভেনশনাল কার্ডিওলজিস্ট</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি বৃহস্পতিবার (দুপুর ২টা - ৮টা), ভিজিট: ৮০০/-</p>
+                <p class="specialty">ক্লিনিক্যাল এন্ড ইন্টারভেনশনাল কার্ডিওলজিস্ট, জাতীয় হৃদরোগ ইনস্টিটিউট, ঢাকা</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি বৃহস্পতিবার দুপুর ২টা থেকে সন্ধ্যা ৮টা | ভিজিট: ৮০০/-</p>
             </div>
 
-            <!-- ----------------- ০৪. নিউরোমেডিসিন ও সার্জারি (Neurology) ----------------- -->
-            <div class="doctor-card neuro">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ রুশদী আবুজর সুজন" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUzpqLPGfUgvaag5BUcEO4EOTln01WE1h4Oj9Owv-UyA&s=10" alt="ডাঃ মিরানা আফরোজ অন্নী" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">নিউরোসার্জারি</span>
-                        <h3>ডাঃ রুশদী আবুজর সুজন</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, এমএস (নিউরোসার্জারি)</p>
+                        <span class="doctor-dept">মেডিসিন ও কার্ডিওলোজী</span>
+                        <h3>ডাঃ মিরানা আফরোজ অন্নী</h3>
+                        <p class="degree">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এফসিপিএস মেডিসিন এফপি, পিজিটি (কার্ডিওলোজী)</p>
                     </div>
                 </div>
-                <p class="specialty">নিউরোসার্জন (ব্রেইন ও স্পাইন) কনসালটেন্ট</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ৭টা - রাত ৯টা), ভিজিট: ৭০০/-</p>
+                <p class="specialty">মেডিসিন, বক্ষব্যাধি ও কার্ডিওলোজী অভিজ্ঞ, শেবাচিম হাসপাতাল</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল থেকে সন্ধ্যা, মঙ্গলবার বিকাল ৩টা - রাত ৮টা</p>
             </div>
 
-            <!-- ----------------- ০৫. সার্জারি বিভাগ (Surgery) ----------------- -->
-            <div class="doctor-card surgery">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ রেজাউল হোসেন" class="doctor-img">
+                    <img src="data:image/png;base64,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" alt="ডাঃ মোঃ আইয়ুব আল মামুন" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">জেনারেল সার্জারি</span>
-                        <h3>ডাঃ মোঃ রেজাউল হোসেন</h3>
-                        <p class="degree">এমবিবিএস, বিসিএস, এফসিপিএস (সার্জারি)</p>
+                        <span class="doctor-dept">লিভার ও মেডিসিন</span>
+                        <h3>ডাঃ মোঃ আইয়ুব আল মামুন</h3>
+                        <p class="degree">এমবিবিএস, এফসিপিএস (মেডিসিন)</p>
                     </div>
                 </div>
-                <p class="specialty">এপেন্ডিক্স, হার্নিয়া, পাইলস, সিজার ও ব্রেস্ট টিউমার অপারেশনে অভিজ্ঞ</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি সোম ও শুক্রবার, ভিজিট: ৬০০/-</p>
+                <p class="specialty">অধ্যাপক ও চেয়ারম্যান: লিভার বিভাগ, বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয় (বিএসএমএমইউ)</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মাসে একদিন বুধবার | ফি: ১০ মোহাম্মদ / ১০০০/-</p>
             </div>
 
-            <div class="doctor-card surgery">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ কে এম জাহিদুল ইসলাম" class="doctor-img">
+                    <img src=".//asadujjaman.jpeg" alt="ডাঃ মোঃ আসাদুজ্জামান" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">অর্থোপেডিক সার্জারি</span>
-                        <h3>ডাঃ কে এম জাহিদুল ইসলাম</h3>
-                        <p class="degree">এমবিবিএস, এমএস (অর্থোপেডিক সার্জারী)</p>
+                        <span class="doctor-dept">গ্যাস্ট্রোএন্টারোলজি ও মেডিসিন</span>
+                        <h3>ডাঃ মোঃ আসাদুজ্জামান</h3>
+                        <p class="degree">এম.বি.বি.এস, পিজিটি মেডিসিন, এফ.সি.পি.এস মেডিসিন (গ্যাস্ট্রোএন্টারোলজি) এফ.টি</p>
                     </div>
                 </div>
-                <p class="specialty">সহকারী অধ্যাপক, অর্থোপেডিক সার্জারী বিভাগ, শেবাচিম</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার (বিকাল ৩টা - রাত ৮টা)</p>
+                <p class="specialty">গ্যাস্ট্রোএন্টারোলজি, এন্ডোস্কপিক ও মেডিসিন চিকিৎসক</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি রবি ও বুধবার বিকাল ৩টা থেকে রাত ৮টা | ভিজিট: ৬০০/-</p>
             </div>
 
-            <!-- ----------------- ০৬. শিশু বিভাগ (Child) ----------------- -->
-            <div class="doctor-card child">
+            <div class="doctor-card medicine">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ স্বপ্নীল ডাক্তার দিগন্ত" class="doctor-img">
+                    <img src=".//farhan.jpeg" alt="ডাঃ ফারহান তানভীর তানু" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও নিউরো</span>
+                        <h3>ডাঃ মোঃ ফারহান তানভীর তানু</h3>
+                        <p class="degree">এমবিবিএম, বিসিএস (স্বাস্থ্য), সিএমইউডি (আল্ট্রা)</p>
+                    </div>
+                </div>
+                <p class="specialty">বক্ষব্যাধি, মেডিসিন, স্নায়ুরোগ, স্ট্রোক, হৃদরোগ, ডায়াবেটিকস ও মানসিক রোগ অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার | ভিজিট: ৫০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="data:image/jpeg;base64,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" alt="ডাঃ এম.ডি.এইচ শরীফ ভূঁইয়া" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও সার্জন</span>
+                        <h3>ডাঃ এম.ডি.এইচ শরীফ ভূঁইয়া</h3>
+                        <p class="degree">এম.বি.বি.এস (ঢাকা), ডি.এম.ইউ (আল্ট্রা), এম.সি.জি.পি (মেডিসিন)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, সার্জারী, গ্যাস্ট্রিক, হৃদরোগ, স্ট্রোক, চর্ম, জ্বর, ব্যথা ও শিশু বিষয়ে অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯-১টা ও বিকাল ৪টা - রাত ১০টা | ভিজিট: ৩০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src=".//MSHshohag.jpeg" alt="ডাঃ এম. এস. এইচ সোহাগ ভূঁইয়া" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও জেনালের</span>
+                        <h3>ডাঃ এম. এস. এইচ সোহাগ ভূঁইয়া</h3>
+                        <p class="degree">এম.বি.বি.এস (ঢাকা), পিজিটি (মেডিসিন), এমসিজিপি (মেডিসিন, মা ও শিশু)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, গাইনী, চর্ম-যৌন, হাপানী, শ্বাসকষ্ট, জ্বর, ব্যথা ও স্নায়ুরোগে অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> বিকাল থেকে রাত পর্যন্ত | ১ম বার: ১০০/-, ২য় বার: ৫০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://static.vecteezy.com/system/resources/previews/007/100/089/non_2x/gastroenterology-icon-on-white-background-free-vector.jpg" alt="ডাঃ মোঃ সিফাত আমিন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও গ্যাস্ট্রো</span>
+                        <h3>ডাঃ মোঃ সিফাত আমিন</h3>
+                        <p class="degree">এম.বি.বি.এস, বি.সি.এস (স্বাস্থ্য), এফসিপিএস (গ্যাস্ট্রোএন্টারোলজি)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, ডায়াবেটিস, উচ্চ রক্তচাপ, পরিপাকতন্ত্র, হৃদরোগ বিষয় অভিজ্ঞ চিকিৎসক</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন বিকাল ৩টা থেকে রাত ৮টা | ভিজিট: ৩০০/২০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7PkhDoNQnEtWCgPakuXSdM4DlO-bbQrirS_fNy66IRhevOrdN-oopnJ8&s=10" alt="ডাঃ মোঃ মাহবুবুর রহমান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও জেনারেল</span>
+                        <h3>ডাঃ মোঃ মাহবুবুর রহমান</h3>
+                        <p class="degree">এমবিবিএম (ঢাকা), পিজিটি, সিবিটি (গাইনী এন্ড অবস্)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, বক্ষব্যাধি, গাইনী, অর্থোপেডিক, জেনারেল প্র্যাকটিশনার ও সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> সোহাগ ক্লিনিক পুরাতন ভবন | ভিজিট: ২০০/-</p>
+            </div>
+
+            <div class="doctor-card medicine">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNkCiEiSK-jtz37bMK3axGNtdFIMqKHjxzv88d9uy6w&s" alt="ডাঃ মোঃ খালিদ হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">মেডিসিন ও শিশু</span>
+                        <h3>ডাঃ মোঃ খালিদ হোসেন</h3>
+                        <p class="degree">এম.বি.বি.এস (স্যার সলিমুল্লাহ মেডিকেল কলেজ মিটফোর্ড), বি.সি.এস (স্বাস্থ্য)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, শিশু মেডিসিন, ডায়াবেটিস, উচ্চরক্তচাপ, শ্বাসকষ্ট, বাত ও জয়েন্ট পেইন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন বিকাল ৪টা থেকে রাত ৮টা</p>
+            </div>
+
+            <!-- ================= ৩. শিশু রোগ বিভাগ (Pediatrics) ================= -->
+            <div class="doctor-card pediatrics">
+                <div class="doctor-header">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/054/810/858/small/baby-transparent-logo-clothing-logo-isolated-on-transparent-background-free-png.png" alt="ডাঃ স্বপ্নীল ভান্ডার দিগন্ত" class="doctor-img">
                     <div>
                         <span class="doctor-dept">শিশু রোগ</span>
-                        <h3>ডাঃ স্বপ্নীল ডাক্তার দিগন্ত</h3>
-                        <p class="degree">এম.বি.বি.এস, এফ.সি.পি.এস (শিশু)</p>
+                        <h3>ডাঃ স্বপ্নীল ভান্ডার দিগন্ত</h3>
+                        <p class="degree">এম.বি.বি.এস, ডি.সি.এইচ, এফ.সি.জি.পি, এম.এ.সি.পি (আমেরিকা)</p>
                     </div>
                 </div>
-                <p class="specialty">নবজাতক, শিশু-কিশোর ও পুষ্টি রোগ চিকিৎসক</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ১০টা - রাত ৮টা, ভিজিট: ৫০০/-</p>
+                <p class="specialty">নবজাতক, শিশু-কিশোর ও পুষ্টি রোগ বিশেষজ্ঞ, শেবাচিম হাসপাতাল</p>
+                <p class="time"><i class="far fa-clock"></i> শুক্র সকাল ১০-৮টা, রবি ও বুধ বিকাল ৪-৮টা | ভিজিট: ৫০০/-</p>
             </div>
 
-            <div class="doctor-card child">
+            <div class="doctor-card pediatrics">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ জাকারিয়া হোসেন" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCab90lLdxGlam6FGxp45hQ74zI7Rl49nOi8qC-yMH5w&s=10" alt="ডাঃ মোঃ জাকারিয়া হোসেন" class="doctor-img">
                     <div>
                         <span class="doctor-dept">শিশু রোগ</span>
                         <h3>ডাঃ মোঃ জাকারিয়া হোসেন</h3>
-                        <p class="degree">এম.বি.বি.এস, পিজিটি (শিশু রোগ)</p>
+                        <p class="degree">এম.বি.বি.এস (ঢাকা), পি.জি.টি (শিশু মেডিসিন), এম.সি.জি.পি (শিশু)</p>
                     </div>
                 </div>
-                <p class="specialty">অনোরারি মেডিকেল অফিসার, শিশু বিভাগ, শেবাচিম</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ১০টা - রাত ৮টা</p>
+                <p class="specialty">নবজাতক, শিশু-কিশোর ও পুষ্টি রোগ চিকিৎসক, শেবাচিম হাসপাতাল</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শনি, রবি, সোম, মঙ্গল ও বৃহস্পতিবার সকাল ১০টা - ৬টা</p>
             </div>
 
-            <!-- ----------------- ০৭. চক্ষু বিভাগ (Eye) ----------------- -->
+            <!-- ================= ৪. নিউরোমেডিসিন ও ব্রেইন (Neurology) ================= -->
+            <div class="doctor-card neurology">
+                <div class="doctor-header">
+                    <img src=".//rushdi.jpeg" alt="ডাঃ রুশদী আবুজর সুজন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">নিউরোসার্জারি</span>
+                        <h3>ডাঃ রুশদী আবুজর সুজন</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমএস (নিউরোসার্জারী), এফএমডি</p>
+                    </div>
+                </div>
+                <p class="specialty">নিউরোমেডিসিন, ব্রেইন, নার্ভ ও স্পাইন বিশেষজ্ঞ ও সার্জন, ন্যাশনাল ইনস্টিটিউট অফ নিউরো সায়েন্স</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ৭টা থেকে রাত ৯টা | ভিজিট: ৭০০/-</p>
+            </div>
+
+            <!-- ================= ৫. কিডনি ও ইউরোলজি (Nephrology & Urology) ================= -->
+            <div class="doctor-card kidney">
+                <div class="doctor-header">
+                    <img src=".//hafizur.jpeg" alt="ডাঃ মোঃ হাফিজুর রহমান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">কিডনি ও মেডিসিন</span>
+                        <h3>ডাঃ মোঃ হাফিজুর রহমান</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমডি (নেফ্রোলজি) বিএসএমএমইউ (পিজি হাসপাতাল)</p>
+                    </div>
+                </div>
+                <p class="specialty">মেডিসিন, কিডনী, বাত-ব্যথা, কোমর-ব্যথা ও গিরা-ব্যথা চিকিৎসক, সহযোগী অধ্যাপক শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি বুধবার বিকাল ৪-সন্ধ্যা, শুক্রবার সকাল ৯-সন্ধ্যা</p>
+            </div>
+
+            <div class="doctor-card kidney">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZbfx01FKKzpSVoEvMxat9tBgO2Y2XtboWtvW515A7w&s=10" alt="ডাঃ মোঃ সারোয়ার হোসেন খান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">ইউরোলজি & কিডনি</span>
+                        <h3>ডাঃ মোঃ সারোয়ার হোসেন খান</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, এমএস (ইউরোলজি), এমআরসিএস (ইংল্যান্ড), এফএসিএস (আমেরিকা)</p>
+                    </div>
+                </div>
+                <p class="specialty">মূত্রনালী-মূত্রথলী-কিডনী বিশেষজ্ঞ ও সার্জন, কনসালটেন্ট শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি রবিবার বিকাল ৩টা থেকে রাত ৮টা পর্যন্ত</p>
+            </div>
+
+            <!-- ================= ৬. অর্থোপেডিক্স ও হাড় জোড়া (Orthopedics) ================= -->
+            <div class="doctor-card orthopedics">
+                <div class="doctor-header">
+                    <img src="https://img.magnific.com/premium-vector/orthopedic-logo-template-design-vector-emblem-design-concept-creative-symbol-icon_316488-2360.jpg" alt="ডাঃ কে এম জাহিদুল ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">অর্থোপেডিকস</span>
+                        <h3>ডাঃ কে এম জাহিদুল ইসলাম</h3>
+                        <p class="degree">এমবিবিএস (ঢাকা), বিসিএস (স্বাস্থ্য), এমএস (অর্থোপেডিক সার্জারী) বিএসএমএমইউ</p>
+                    </div>
+                </div>
+                <p class="specialty">অর্থোপেডিক, হাড় জোড়া-ভাঙা, বাত-ব্যথা, মেরুদণ্ডের রোগ, পঙ্গু ও প্যারালাইসিস বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মঙ্গলবার বিকাল ৩টা থেকে রাত ৮টা (রুম নং-৬১২)</p>
+            </div>
+
+            <div class="doctor-card orthopedics">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX4p8TUzwZLJzFQDYnaXW-1D_kM0iuE_V2--6dugoIHA&s=10" alt="ডাঃ মোঃ আরিফ হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">অর্থোপেডিকস</span>
+                        <h3>ডাঃ মোঃ আরিফ হোসেন</h3>
+                        <p class="degree">এম.বি.বি.এস (ঢাকা), সি.এম.ইউ, পিজিটি (অর্থো সার্জারী), সিসিডি বারডেম</p>
+                    </div>
+                </div>
+                <p class="specialty">অর্থোপেডিক ও পেইন বিশেষজ্ঞ, সাবেক আরএমও বাংলাদেশ পেইন এন্ড অর্থোপেডিক</p>
+                <p class="time"><i class="far fa-clock"></i> শুক্র ১০-২টা, সোম ও বুধ বিকাল ৩-সন্ধ্যা ৭টা</p>
+            </div>
+
+            <div class="doctor-card orthopedics">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSol086WXjqqnuowduS22wHTGT3sBFLa3NgXrWGSwBelQ&s" alt="ডাঃ গৌতম সাহা" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">অর্থোপেডিকস</span>
+                        <h3>ডাঃ গৌতম সাহা</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), ডি-অর্থো, কনসালটেন্ট অর্থোপেডিক্স</p>
+                    </div>
+                </div>
+                <p class="specialty">অর্থোপেডিকস্ বিশেষজ্ঞ ও ট্রমা সার্জন, সাবেক পিজি হাসপাতাল</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শনি ও রবিবার বিকাল ৩ টা থেকে সন্ধ্যা ৭ টা</p>
+            </div>
+
+            <!-- ================= ৭. নাক-কান-গলা বিভাগ (ENT) ================= -->
+            <div class="doctor-card ent">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_RQYnSEfyL88DYj6pR-jz2Cw5_k1dQwgeo9BHaD7gQ&s=10" alt="ডাঃ মোঃ সাইফুল ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">নাক-কান-গলা</span>
+                        <h3>ডাঃ মোঃ সাইফুল ইসলাম</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস (স্বাস্থ্য), এফসিপিএস (নাক, কান ও গলা)</p>
+                    </div>
+                </div>
+                <p class="specialty">সহযোগী অধ্যাপক, শেবাচিম হাসপাতাল। নাক-কান-গলা রোগ বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ৮টা থেকে বিকাল ৪টা (রুম-৭০৮) | ভিজিট: ৭০০/-</p>
+            </div>
+
+            <div class="doctor-card ent">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_RQYnSEfyL88DYj6pR-jz2Cw5_k1dQwgeo9BHaD7gQ&s=10" alt="ডাঃ মোঃ হারুন-অর-রশিদ" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">নাক-কান-গলা</span>
+                        <h3>ডাঃ মোঃ হারুন-অর-রশিদ</h3>
+                        <p class="degree">এমবিবিএস (ঢাকা), ডিএলও (ডিইউ), কনসালটেন্ট (ইএনটি)</p>
+                    </div>
+                </div>
+                <p class="specialty">নাক-কান-গলা, ঘাড়, মাথা ব্যথা, মুখ, জিহ্বা ও গলগণ্ড রোগ বিশেষজ্ঞ ও সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ৮টা থেকে সকাল ১০টা</p>
+            </div>
+
+            <div class="doctor-card ent">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj_RQYnSEfyL88DYj6pR-jz2Cw5_k1dQwgeo9BHaD7gQ&s=10" alt="ডাঃ মোঃ জাবের আল সাঈদ" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">নাক-কান-গলা</span>
+                        <h3>ডাঃ মোঃ জাবের আল সাঈদ</h3>
+                        <p class="degree">এমবিবিএস, এম এস (ই.এন.টি), বিএসএমএমইউ (পিজি হাসপাতাল)</p>
+                    </div>
+                </div>
+                <p class="specialty">নাক, কান, গলা রোগ বিশেষজ্ঞ ও এন্ডোস্কপিক কম্পিউটার সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> রোগী দেখার সময়: প্রতি সপ্তাহে ২ দিন</p>
+            </div>
+
+            <!-- ================= ৮. রক্তরোগ ও হেমাটোলজি (Hematology) ================= -->
+            <div class="doctor-card hematology">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPHy6cnr4sbdAc3KJGbDWQXmS4h3pgVA1RXNKPNUO3qQ&s=10" alt="ডাঃ মোহাম্মদ আলী" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">রক্তরোগ ও ব্লাড ক্যান্সার</span>
+                        <h3>ডাঃ মোহাম্মদ আলী</h3>
+                        <p class="degree">এমবিবিএস, এফসিপিএস (হেমাটোলজি)</p>
+                    </div>
+                </div>
+                <p class="specialty">রক্ত শূন্যতা, থ্যালাসেমিয়া, হেমোফিলিয়া, ব্লাড ক্যান্সার বিশেষজ্ঞ। প্রধান, হেমাটোলজি শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি মাসের প্রথম ও শেষ বুধবার</p>
+            </div>
+
+            <!-- ================= ৯. চক্ষু বিভাগ (Eye / Ophthalmology) ================= -->
             <div class="doctor-card eye">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মির্জা মাহবুবুর রহমান" class="doctor-img">
+                    <img src=".//mirja-mahbub.jpeg" alt="ডাঃ মীর্জা মাহবুবুর রহমান" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">চক্ষু বিশেষজ্ঞ</span>
-                        <h3>ডাঃ মির্জা মাহবুবুর রহমান</h3>
-                        <p class="degree">এমবিবিএস, ডিও, স্যার সলিমুল্লাহ মেডিকেল</p>
+                        <span class="doctor-dept">চক্ষু বিভাগ</span>
+                        <h3>ডাঃ মীর্জা মাহবুবুর রহমান</h3>
+                        <p class="degree">এমবিবিএস (চক্ষু), ডিও (ডিইউ), বিসিএস, ডিএসিসিএসআই (সিডনি)</p>
                     </div>
                 </div>
-                <p class="specialty">চোখ চুলকানি, পানি পড়া, ছানি পড়া ও চশমা দেওয়া</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার (সকাল ১০টা - ৫টা), ভিজিট: ৭০০/-</p>
+                <p class="specialty">চক্ষু বিশেষজ্ঞ ও সার্জন, স্যার সলিমুল্লাহ মেডিকেল কলেজ, ঢাকা</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শুক্রবার সকাল ১০টা থেকে বেলা ৩টা (রুম-৭০৪) | ভিজিট: ৭০০/-</p>
             </div>
 
-            <!-- ----------------- ০৮. চর্ম ও যৌন বিভাগ (Skin) ----------------- -->
+            <div class="doctor-card eye">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGYc_V7rkTE3yVO4u9-Of2spXvBmEp9ErdYkDrgUKLQ&s=10" alt="ডাঃ নাফিয়া" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">চক্ষু বিভাগ</span>
+                        <h3>ডাঃ নাফিয়া</h3>
+                        <p class="degree">এম.বি.বি.এস (শেবাচিম), সি.সি.ডি (বারডেম), পি.জি.টি (চক্ষু), এফসিপিএস পার্ট ২</p>
+                    </div>
+                </div>
+                <p class="specialty">চোখে ছানি পড়া ও চক্ষু চিকিৎসক, ইসলামিয়া চক্ষু হাসপাতাল বরিশাল</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি বুধবার বিকাল ৩টা থেকে সন্ধ্যা ৭টা | ভিজিট: ৫০০/-</p>
+            </div>
+
+            <div class="doctor-card eye">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWYLDSlmk4N9Wgs0v15JnEuUe0fjdBY-SB0n_x1otP6A&s=10" alt="চিকিৎসক মোঃ লোকমান হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">চক্ষু বিভাগ</span>
+                        <h3>চিকিৎসক মোঃ লোকমান হোসেন</h3>
+                        <p class="degree">ডিএমএফ (ঢাকা), উপ-সহকারী চিকিৎসক</p>
+                    </div>
+                </div>
+                <p class="specialty">চোখ চুলকানি, পানি পড়া, চশমা দেওয়া ও চোখ পরীক্ষা অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯-১টা এবং বিকাল ৪-৮টা (রুম-৭০৪) | ভিজিট: ১০০/-</p>
+            </div>
+
+            <!-- ================= ১০. চর্ম, যৌন ও এলার্জি (Dermatology) ================= -->
             <div class="doctor-card skin">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডাঃ মোঃ হাবিবুর রহমান" class="doctor-img">
+                    <img src="https://cdn.creativefabrica.com/2020/02/10/Medicine-Logo-Graphics-1-4.jpg" alt="ডাঃ মোঃ হাবিবুর রহমান" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">চর্ম, যৌন ও এলার্জি</span>
+                        <span class="doctor-dept">চর্ম ও যৌন</span>
                         <h3>ডাঃ মোঃ হাবিবুর রহমান</h3>
-                        <p class="degree">এমবিবিএস, ডিপিএইচ, ডিডিভি</p>
+                        <p class="degree">এমবিবিএস, ডিপিএইচ, ডিডিভি (ঢাকা)</p>
                     </div>
                 </div>
-                <p class="specialty">সহযোগী অধ্যাপক (চর্ম ও যৌন), শেবাচিম বরিশাল</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতি রবিবার (বেলা ২টা - ৪:৩০টা), ভিজিট: ৫০০/-</p>
+                <p class="specialty">সহযোগী অধ্যাপক (চর্ম ও যৌন) শেবাচিম। চর্ম, যৌন, এলার্জি ও কুষ্ঠ রোগ বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি রবিবার বেলা ২টা থেকে বিকাল ৪.৩০টা | ভিজিট: ৫০০/-</p>
             </div>
 
-            <!-- ----------------- ০৯. দন্ত বিভাগ (Dental) ----------------- -->
-            <div class="doctor-card dental">
+            <div class="doctor-card skin">
                 <div class="doctor-header">
-                    <img src="https://via.placeholder.com/150?text=Doctor+Photo" alt="ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম" class="doctor-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaa9jxAj1jBpiNEfU-zSQbXv7tjGdXZuMkff1tZCNHkQ&s=10" alt="ডাঃ মোঃ হাসিবুল হোসাইন" class="doctor-img">
                     <div>
-                        <span class="doctor-dept">দন্ত রোগ</span>
-                        <h3>ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম</h3>
-                        <p class="degree">ডিএমটি (ডেন্টিস্ট্রি)</p>
+                        <span class="doctor-dept">চর্ম, যৌন & হারবাল</span>
+                        <h3>ডাঃ মোঃ হাসিবুল হোসাইন</h3>
+                        <p class="degree">ন্যাচারাল (হারবাল) মেডিসিন এক্সপার্ট, বিএনএমএস (ঢাবি), এমপিএইচ</p>
                     </div>
                 </div>
-                <p class="specialty">দাঁত, মাড়ি ও মুখ গহ্বরের চিকিৎসক</p>
-                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯টা - রাত ৮টা</p>
+                <p class="specialty">চর্ম, যৌন, এলার্জি, বন্ধাত্ব, পরিপাকতন্ত্র, প্রসাবে জ্বালাপোড়া ও সাদা স্রাব বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন বিকাল ৪টা থেকে রাত ৮টা (রুম-৭০১) | ভিজিট: ৩০০/-</p>
+            </div>
+
+            <!-- ================= ১১. জেনারেল ও সার্জারি বিভাগ (Surgery) ================= -->
+            <div class="doctor-card surgery">
+                <div class="doctor-header">
+                    <img src=".//akram-hossain.jpeg" alt="ডাঃ আকরাম হোসেন নিশান" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">জেনারেল সার্জারি</span>
+                        <h3>ডাঃ আকরাম হোসেন নিশান</h3>
+                        <p class="degree">এম.বি.বি.এস, বিসিএস, এফসিপিএস-সার্জারী (শেষ পর্ব), ডিএমইউ</p>
+                    </div>
+                </div>
+                <p class="specialty">জেনারেল চিকিৎসক ও সার্জন, হার্নিয়া, একশিরা, পাইলস ও টিউমার বিশেষজ্ঞ, শেবাচিম</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি শনিবার ও মঙ্গলবার বিকাল ৪টা থেকে রাত ৮টা | ভিজিট: ৬০০/-</p>
+            </div>
+
+            <div class="doctor-card surgery">
+                <div class="doctor-header">
+                    <img src=".//mohiuddin.jpeg" alt="ডাঃ মোঃ মহিউদ্দিন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">সার্জারি ও মেডিসিন</span>
+                        <h3>ডাঃ মোঃ মহিউদ্দিন</h3>
+                        <p class="degree">এমবিবিএম (ঢাকা), সিএমইউডি, পিজিটি ইন এ্যানেস্থেসিয়া, সিসিডি বারডেম</p>
+                    </div>
+                </div>
+                <p class="specialty">মা ও শিশু, মেডিসিন, সার্জারী অভিজ্ঞ এবং ডায়াবেটিস বিষয়ে বিশেষজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯টা-বেলা ২টা (রুম নং-০২) | ভিজিট: ৩০০/-</p>
+            </div>
+
+            <div class="doctor-card surgery">
+                <div class="doctor-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy0lLBWZIzHyxX1hz-0Y1gCn7AjOlWXj2M6AQ5QHTJg&s=10" alt="ডাঃ মোঃ রেজাউল হোসেন" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">জেনারেল সার্জারি</span>
+                        <h3>ডাঃ মোঃ রেজাউল হোসেন</h3>
+                        <p class="degree">এমবিবিএস, বিসিএস, পিজিটি মেডিসিন, এফসিপিএস (সার্জারী) শেষ পর্ব</p>
+                    </div>
+                </div>
+                <p class="specialty">এপেন্ডিক্স, হার্নিয়া, একশিরা, পাইলস, সিজার ও জরায়ু টিউমার অপারেশনে অভিজ্ঞ</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতি সোম ও শুক্রবার (রুম নং-১০৩) | ভিজিট: ৬০০/-</p>
+            </div>
+
+            <!-- ================= ১২. দন্ত বিভাগ (Dental) ================= -->
+            <div class="doctor-card dental">
+                <div class="doctor-header">
+                    <img src="data:image/png;base64,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" alt="ডেনটিস্ট মোঃ নিয়াজ বিন ইসলাম" class="doctor-img">
+                    <div>
+                        <span class="doctor-dept">দন্ত বিভাগ</span>
+                        <h3>ডেনটিস্ট মোঃ নিয়াজ বিন ইসলাম (নিলয়)</h3>
+                        <p class="degree">ডিএমটি (ডেন্টিস্ট্রি), আইএইচটি, এফটি: শেবাচিম হাসপাতাল</p>
+                    </div>
+                </div>
+                <p class="specialty"> দাঁত, মাড়ি ও দন্ত রোগের চিকিৎসক ও ডেন্টাল সার্জন</p>
+                <p class="time"><i class="far fa-clock"></i> প্রতিদিন সকাল ৯টা-১টা এবং বিকাল ৪টা-সন্ধ্যা ৭টা</p>
             </div>
 
         </div>
     </section>
 
     <!-- Appointment Form Section (All Doctors Included) -->
-    <section class="appointment-section" id="appointment">
-        <div class="section-title">
-            <h2>অনলাইন ডাক্তার অ্যাপয়েন্টমেন্ট</h2>
+    <div class="appointment-box">
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="name">রোগীর নাম:</label>
+            <input type="text" id="name" required placeholder="আপনার পুরো নাম লিখুন">
         </div>
-        <div class="appointment-box">
-            <form id="appointmentForm">
-                <div class="form-group">
-                    <label for="name">রোগীর নাম:</label>
-                    <input type="text" id="name" placeholder="রোগীর নাম লিখুন" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">মোবাইল নম্বর:</label>
-                    <input type="tel" id="phone" placeholder="০১৮২১-৩৬১৩৯২" required>
-                </div>
-                <div class="form-group">
-                    <label for="doctor">ডাক্তার নির্বাচন করুন:</label>
-                    <select id="doctor" required>
-                        <option value="">-- ডাক্তার বাছাই করুন --</option>
-                        
-                        <!-- ০১. গাইনি ও প্রসূতি বিভাগ -->
-                        <optgroup label="গাইনি ও প্রসূতি বিভাগ">
-                            <option value="ডাঃ নাসরিন সুলতানা (গাইনি ও প্রসূতি)">ডাঃ নাসরিন সুলতানা</option>
-                            <option value="ডাঃ সুরাইয়া ইয়াসমিন (গাইনি ও বন্ধ্যাত্ব)">ডাঃ সুরাইয়া ইয়াসমিন</option>
-                            <option value="ডাঃ ফারহানা আফরিন সারাহ (প্রসূতি ও আল্ট্রাসোনো)">ডাঃ ফারহানা আফরিন সারাহ</option>
-                            <option value="ডাঃ মেহেনাজ আক্তার (গাইনি ও চর্ম-যৌন)">ডাঃ মেহেনাজ আক্তার</option>
-                            <option value="ডাঃ সারাহ সাদিয়া (গাইনি মেডিসিন)">ডাঃ সারাহ সাদিয়া</option>
-                        </optgroup>
 
-                        <!-- ০২. মেডিসিন বিভাগ -->
-                        <optgroup label="মেডিসিন বিভাগ">
-                            <option value="ডাঃ মোঃ আইয়ুব আল মামুন (লিভার ও মেডিসিন)">ডাঃ মোঃ আইয়ুব আল মামুন</option>
-                            <option value="ডাঃ মোঃ হাফিজুর রহমান (মেডিসিন ও কিডনী)">ডাঃ মোঃ হাফিজুর রহমান</option>
-                            <option value="ডাঃ মোঃ আসাদুজ্জামান (গ্যাস্ট্রোএন্টারোলজি)">ডাঃ মোঃ আসাদুজ্জামান</option>
-                            <option value="ডাঃ মিরানা আফরোজ অন্নী (মেডিসিন ও বক্ষব্যাধি)">ডাঃ মিরানা আফরোজ অন্নী</option>
-                        </optgroup>
-
-                        <!-- ০৩. হৃদরোগ বিভাগ -->
-                        <optgroup label="হৃদরোগ বিভাগ">
-                            <option value="ডাঃ মোঃ আবুয়াল হাসান (মেডিসিন ও হৃদরোগ)">ডাঃ মোঃ আবুয়াল হাসান</option>
-                            <option value="ডাঃ মোঃ ইমন ইবনে নূর (কার্ডিওলোজি)">ডাঃ মোঃ ইমন ইবনে নূর</option>
-                            <option value="ডাঃ সৈয়দ নাজমুল ইসলাম (হৃদরোগ বিশেষজ্ঞ)">ডাঃ সৈয়দ নাজমুল ইসলাম</option>
-                        </optgroup>
-
-                        <!-- ০৪. নিউরোমেডিসিন ও সার্জারি -->
-                        <optgroup label="নিউরোমেডিসিন ও সার্জারি">
-                            <option value="ডাঃ রুশদী আবুজর সুজন (নিউরোসার্জারি)">ডাঃ রুশদী আবুজর সুজন</option>
-                        </optgroup>
-
-                        <!-- ০৫. সার্জারি বিভাগ -->
-                        <optgroup label="সার্জারি বিভাগ">
-                            <option value="ডাঃ মোঃ রেজাউল হোসেন (জেনারেল সার্জারি)">ডাঃ মোঃ রেজাউল হোসেন</option>
-                            <option value="ডাঃ কে এম জাহিদুল ইসলাম (অর্থোপেডিক সার্জারি)">ডাঃ কে এম জাহিদুল ইসলাম</option>
-                        </optgroup>
-
-                        <!-- ০৬. শিশু বিভাগ -->
-                        <optgroup label="শিশু বিভাগ">
-                            <option value="ডাঃ স্বপ্নীল ডাক্তার দিগন্ত (শিশু রোগ)">ডাঃ স্বপ্নীল ডাক্তার দিগন্ত</option>
-                            <option value="ডাঃ মোঃ জাকারিয়া হোসেন (শিশু রোগ)">ডাঃ মোঃ জাকারিয়া হোসেন</option>
-                        </optgroup>
-
-                        <!-- ০৭. চক্ষু বিভাগ -->
-                        <optgroup label="চক্ষু বিভাগ">
-                            <option value="ডাঃ মির্জা মাহবুবুর রহমান (চক্ষু বিশেষজ্ঞ)">ডাঃ মির্জা মাহবুবুর রহমান</option>
-                        </optgroup>
-
-                        <!-- ০৮. চর্ম ও যৌন বিভাগ -->
-                        <optgroup label="চর্ম ও যৌন বিভাগ">
-                            <option value="ডাঃ মোঃ হাবিবুর রহমান (চর্ম, যৌন ও এলার্জি)">ডাঃ মোঃ হাবিবুর রহমান</option>
-                        </optgroup>
-
-                        <!-- ০৯. দন্ত বিভাগ -->
-                        <optgroup label="দন্ত বিভাগ">
-                            <option value="ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম (দন্ত রোগ)">ডেন্টিস্ট মোঃ নিয়াজ বিন ইসলাম</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="date">তারিখ:</label>
-                    <input type="date" id="date" required>
-                </div>
-                <button type="submit" class="btn-submit">
-                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে বুকিং পাঠান
-                </button>
-            </form>
+        <div class="form-group">
+            <label for="phone">মোবাইল নম্বর:</label>
+            <input type="tel" id="phone" required placeholder="০১৭xxxxxxxx">
         </div>
+
+        <div class="form-group">
+            <label for="doctor">ডাক্তার নির্বাচন করুন:</label>
+            <select id="doctor" required>
+                <option value="">-- ডাক্তার নির্বাচন করুন --</option>
+                
+                <!-- ১. গাইনী ও প্রসূতি বিভাগ -->
+                <optgroup label="গাইনী ও প্রসূতি বিভাগ">
+                    <option value="nasrin_sultana">ডাঃ নাসরিন সুলতানা (গাইনী ও প্রসূতি)</option>
+                    <option value="suraiya_yasmin">ডাঃ সুরাইয়া ইয়াসমিন (গাইনী ও প্রসূতি)</option>
+                    <option value="farhana_afrin">ডাঃ ফারহানা আফরিন সারাহ (প্রসূতি ও স্ত্রী রোগ)</option>
+                    <option value="mehenaj_akter">ডাঃ মেহেনাজ আক্তার (গাইনী ও আল্ট্রাসোনোলজি)</option>
+                    <option value="sarah_sadia">ডাঃ সারাহ সাদিয়া (গাইনী মেডিসিন)</option>
+                </optgroup>
+
+                <!-- ২. মেডিসিন ও হৃদরোগ বিভাগ -->
+                <optgroup label="মেডিসিন ও হৃদরোগ বিভাগ">
+                    <option value="abual_hasan">ডাঃ মোঃ আবুয়াল হাসান (মেডিসিন ও হৃদরোগ)</option>
+                    <option value="imon_ibne_noor">ডাঃ মোঃ ইমন ইবনে নূর (হৃদরোগ ও মেডিসিন)</option>
+                    <option value="nazmul_islam">ডাঃ সৈয়দ নাজমুল ইসলাম (হৃদরোগ ও মেডিসিন)</option>
+                    <option value="mirana_afroz">ডাঃ মিরানা আফরোজ অন্নী (মেডিসিন ও কার্ডিওলোজী)</option>
+                    <option value="ayub_al_mamun">ডাঃ মোঃ আইয়ুব আল মামুন (লিভার ও মেডিসিন)</option>
+                    <option value="asaduzzaman">ডাঃ মোঃ আসাদুজ্জামান (গ্যাস্ট্রোএন্টারোলজি ও মেডিসিন)</option>
+                    <option value="farhan_tanvir">ডাঃ মোঃ ফারহান তানভীর তানু (মেডিসিন ও নিউরো)</option>
+                    <option value="sharif_bhuiyan">ডাঃ এম.ডি.এইচ শরীফ ভূঁইয়া (মেডিসিন ও সার্জন)</option>
+                    <option value="sohag_bhuiyan">ডাঃ এম. এস. এইচ সোহাগ ভূঁইয়া (মেডিসিন ও জেনারেল)</option>
+                    <option value="sifat_amin">ডাঃ মোঃ সিফাত আমিন (মেডিসিন ও গ্যাস্ট্রো)</option>
+                    <option value="mahbubur_rahman">ডাঃ মোঃ মাহবুবুর রহমান (মেডিসিন ও জেনারেল)</option>
+                    <option value="khalid_hossein">ডাঃ মোঃ খালিদ হোসেন (মেডিসিন ও শিশু)</option>
+                </optgroup>
+
+                <!-- ৩. শিশু রোগ বিভাগ -->
+                <optgroup label="শিশু রোগ বিভাগ">
+                    <option value="swapnil_vandar">ডাঃ স্বপ্নীল ভান্ডার দিগন্ত (শিশু রোগ)</option>
+                    <option value="jakaria_hossein">ডাঃ মোঃ জাকারিয়া হোসেন (শিশু রোগ)</option>
+                </optgroup>
+
+                <!-- ৪. নিউরোমেডিসিন ও ব্রেইন -->
+                <optgroup label="নিউরোমেডিসিন ও ব্রেইন">
+                    <option value="rushdi_abujor">ডাঃ রুশদী আবুজর সুজন (নিউরোসার্জারি)</option>
+                </optgroup>
+
+                <!-- ৫. কিডনি ও ইউরোলজি -->
+                <optgroup label="কিডনি ও ইউরোলজি">
+                    <option value="hafizur_rahman">ডাঃ মোঃ হাফিজুর রহমান (কিডনি ও মেডিসিন)</option>
+                    <option value="sarowar_hossein">ডাঃ মোঃ সারোয়ার হোসেন খান (ইউরোলজি & কিডনি)</option>
+                </optgroup>
+
+                <!-- ৬. অর্থোপেডিক্স ও হাড় জোড়া -->
+                <optgroup label="অর্থোপেডিক্স ও হাড় জোড়া">
+                    <option value="jahidul_islam">ডাঃ কে এম জাহিদুল ইসলাম (অর্থোপেডিকস)</option>
+                    <option value="arif_hossein">ডাঃ মোঃ আরিফ হোসেন (অর্থোপেডিকস)</option>
+                    <option value="goutam_saha">ডাঃ গৌতম সাহা (অর্থোপেডিকস)</option>
+                </optgroup>
+
+                <!-- ৭. নাক-কান-গলা বিভাগ -->
+                <optgroup label="নাক-কান-গলা বিভাগ">
+                    <option value="saiful_islam">ডাঃ মোঃ সাইফুল ইসলাম (নাক-কান-গলা)</option>
+                    <option value="harun_or_rashid">ডাঃ মোঃ হারুন-অর-রশিদ (নাক-কান-গলা)</option>
+                    <option value="jaber_al_sayeed">ডাঃ মোঃ জাবের আল সাঈদ (নাক-কান-গলা)</option>
+                </optgroup>
+
+                <!-- ৮. রক্তরোগ ও ব্লাড ক্যান্সার -->
+                <optgroup label="রক্তরোগ ও ব্লাড ক্যান্সার">
+                    <option value="mohammad_ali">ডাঃ মোহাম্মদ আলী (রক্তরোগ ও ব্লাড ক্যান্সার)</option>
+                </optgroup>
+
+                <!-- ৯. চক্ষু বিভাগ -->
+                <optgroup label="চক্ষু বিভাগ">
+                    <option value="mirza_mahbubur">ডাঃ মীর্জা মাহবুবুর রহমান (চক্ষু বিভাগ)</option>
+                    <option value="nafia">ডাঃ নাফিয়া (চক্ষু বিভাগ)</option>
+                    <option value="lokman_hossein">চিকিৎসক মোঃ লোকমান হোসেন (চক্ষু বিভাগ)</option>
+                </optgroup>
+
+                <!-- ১০. চর্ম ও যৌন বিভাগ -->
+                <optgroup label="চর্ম ও যৌন বিভাগ">
+                    <option value="habibur_rahman">ডাঃ মোঃ হাবিবুর রহমান (চর্ম ও যৌন)</option>
+                    <option value="hasibul_hossein">ডাঃ মোঃ হাসিবুল হোসাইন (চর্ম, যৌন & হারবাল)</option>
+                </optgroup>
+
+                <!-- ১১. জেনারেল সার্জারি -->
+                <optgroup label="জেনারেল সার্জারি">
+                    <option value="akram_hossein">ডাঃ আকরাম হোসেন নিশান (জেনারেল সার্জারি)</option>
+                    <option value="mohiuddin">ডাঃ মোঃ মহিউদ্দিন (সার্জারি ও মেডিসিন)</option>
+                    <option value="rejaul_hossein">ডাঃ মোঃ রেজাউল হোসেন (জেনারেল সার্জারি)</option>
+                </optgroup>
+
+                <!-- ১২. দন্ত বিভাগ -->
+                <optgroup label="দন্ত বিভাগ">
+                    <option value="niaj_bin_islam">ডেনটিস্ট মোঃ নিয়াজ বিন ইসলাম (দন্ত বিভাগ)</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="date">তারিখ:</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <button type="submit" class="btn-submit">অ্যাপয়েন্টমেন্ট কনফার্ম করুন</button>
+    </form>
+</div>
     </section>
 
     <!-- Footer -->
